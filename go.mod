@@ -1,4 +1,4 @@
-module github.com/the-gophers/go-action
+module github.com/Autumn-Martin/gopher-a-tweet
 
 go 1.16
 
