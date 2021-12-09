@@ -92,7 +92,7 @@ Once you push your first image you will also need to update the Container Regist
 TODO: record and post the first lab walking through creation, execution and optimization
 
 ## Lab Instructions
-1) Click on "Use this template" on https://github.com/the-gophers/go-action, and create a repo of your own. I'm going 
+1) Click on "Use this template" on https://github.com/Autumn-Martin/gopher-a-tweet, and create a repo of your own. I'm going 
    to call mine "templated-action", make it public, and click "Create repository from template".
 2) Clone your newly crated repo
 3) Run `go run . -h`.
