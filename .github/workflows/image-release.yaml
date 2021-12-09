@@ -26,5 +26,5 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/Autumn-Martin/gopher-a-tweet:${{ env.RELEASE_VERSION }}
-            ghcr.io/Autumn-Martin/gopher-a-tweet:latest
+            ghcr.io/autumn-martin/gopher-a-tweet:${{ env.RELEASE_VERSION }}
+            ghcr.io/autumn-martin/gopher-a-tweet:latest
