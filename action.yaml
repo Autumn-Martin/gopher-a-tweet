@@ -1,6 +1,6 @@
-name: Tweeter Action
-author: devigned
-description: Simple action to send a tweet via an GitHub Action.
+name: Gopher A Tweet
+author: Autumn-Martin
+description: A GitHub Action in Go to Gopher a Tweet.
 inputs:
   message:
     description: 'message you want to tweet'
