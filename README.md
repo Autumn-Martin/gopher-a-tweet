@@ -93,40 +93,52 @@ TODO: record and post the first lab walking through creation, execution and opti
 
 ## Lab Instructions
 1) Click on "Use this template" on https://github.com/Autumn-Martin/gopher-a-tweet, and create a repo of your own. I'm going 
-   to call mine "templated-action", make it public, and click "Create repository from template".
-2) Clone your newly crated repo
+   to call mine "test-gopher-action", make it public, and click "Create repository from template".
+   
+2) Clone your newly created repo
+
 3) Run `go run . -h`.
+
 5) Run
     ```shell script
     $ go run . --dryRun --message hello
     ::set-output name=sentMessage::hello
     ```
+    
 6) Checkout a new branch and let's make this our own GitHub Action. Run `git checkout -b my-action`
+
 7) Update `./action.yml` name, description, and author to something reasonable. The `name` field needs to be
-   unique to others in the store.
+   unique to others in the store. Update links to reference your repo 
+   (at least the `ghcr.io` ones -- which will need to be lowercased).
+   
 8) When you are done with your changes, commit them, push your branch to GitHub, and open a pull request. In the PR,
    you should see the CI action run and complete successfully. LGTM! Let's merge these changes. Click the
    "Merge pull request" button, then delete the branch.
+   
 9) Check out `main` and pull down the latest changes from GitHub (`git pull`).
-11) In `test-repo` click on Actions and run `test-action` with the inputs you desire. Navigate the UI to the running
+
+11) In `test-gopher-action` click on Actions and run `test-action` with the inputs you desire. Navigate the UI to the running
     action and see that it built the action, built the Dockerfile and executed the entrypoint Go application. Also note
     how long it took to run the action. **Using a Dockerfile will cause it to rebuild that image EACH time the action
     runs!**. We can do better than that. More ahead.
+    
 12) Let's tag our first release (`git tag v1.0.0`) and push the tag
-    (`git push origin v1.0.0`). This should create our first release in GitHub via the `release action` workflow.
+    (`git push origin v1.0.0`). This should create our first release in GitHub via the `release action` workflow. 
+    Note that we'll need use [semantic versioning](https://semver.org/) for the action version workflow to pass.
+    
 13) Navigate to the `v1.0.0` release and click edit. Within the release edit page, you should see "Publish this Action to the GitHub Marketplace".
     If you check that box, your action will now be publicly advertised to all of GitHub!
-14) **PSA:** The rest of this is optional. If you don't care about your action going fast, stop right here.
-15) Now we are going to make this **FAST** by pre-baking our container image. Go back to `templated-action` and edit
-    `./github/workflows/release-image.yml`. Change `docker.pkg.github.com/owner/` to use your repo owner for `owner`.
-    Commit and push the changes.
-17) Now tag the repo with `git tag image-v1.0.0` and then push the tag `git push origin image-v1.0.0`. This will
-    kick off the image release build.
-18) Replace `image: Dockerfile` with `image: docker://ghcr.io/your-repo/your-image:1.0.0` replacing the repo and image name.
-    Commit the changes and tag a new release of the Action as done in #12.
-19) Rerun the continuous integration and see how much faster the action runs now that it doesn't have to rebuild
-    the container image each time.
     
+14) **PSA:** The rest of this is optional. If you don't care about your action going fast, stop right here.
+
+15) Now we are going to make this **FAST** by pre-baking our container image. Tag the repo with `git tag image-v1.0.0` and then push the tag `git push origin image-v1.0.0`. This will
+    kick off the image release build.
+    
+16) Replace `image: Dockerfile` with `image: docker://ghcr.io/your-repo/your-image:1.0.0` replacing the repo and image name.
+    Commit the changes and tag a new release of the Action as done in #12.
+    
+17) Rerun the continuous integration and see how much faster the action runs now that it doesn't have to rebuild
+    the container image each time.
 
 
 ## Contributions
