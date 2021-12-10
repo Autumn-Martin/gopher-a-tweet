@@ -24,7 +24,7 @@ outputs:
     description: 'message sent to Twitter'
 runs:
   using: docker
-  image: docker://ghcr.io/autumn-martin/gopher-a-tweet:1.1.0
+  image: docker://ghcr.io/autumn-martin/gopher-a-tweet:1.1.2
   args:
     - --message
     - "${{ inputs.message }}"
